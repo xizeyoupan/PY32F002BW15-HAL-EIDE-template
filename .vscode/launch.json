@@ -10,7 +10,7 @@
             "executable": "build\\Project\\Project.elf",
             "runToEntryPoint": "main",
             "configFiles": [
-                "openocd-0.12.0/scripts/interface/cmsis-dap.cfg",
+                "openocd-0.12.0/scripts/interface/cmsis-dap-v1.cfg",
                 "openocd-0.12.0/scripts/target/py32f002b.cfg"
             ],
             "toolchainPrefix": "arm-none-eabi",
