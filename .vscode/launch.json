@@ -19,18 +19,5 @@
                 "openocd-0.12.0/scripts"
             ]
         },
-        {
-            "cwd": "${workspaceRoot}",
-            "type": "cortex-debug",
-            "request": "launch",
-            "name": "jlink",
-            "servertype": "jlink",
-            "interface": "swd",
-            "executable": "build\\Project\\Project.elf",
-            "runToEntryPoint": "main",
-            "device": "PY32F002Bx5",
-            "toolchainPrefix": "arm-none-eabi",
-            "svdFile": "../../../../../../Packs/GCC/.pack/Puya/PY32F0xx_DFP/CMSIS/SVD/py32f002bxx.svd"
-        }
     ]
 }
