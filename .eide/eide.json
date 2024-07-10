@@ -11,7 +11,7 @@
         "name": "BSP",
         "files": [
           {
-            "path": "Drivers/BSP/PY32F002Bxx_Start_Kit/py32f002bxx_Start_Kit.c"
+            "path": "PY32F002B_Firmware/Drivers/BSP/PY32F002Bxx_Start_Kit/py32f002bxx_Start_Kit.c"
           }
         ],
         "folders": []
@@ -41,37 +41,37 @@
         "name": "PY32F002B_HAL_Driver",
         "files": [
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_cortex.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_cortex.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_exti.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_exti.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_gpio.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_gpio.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_pwr.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_pwr.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_rcc_ex.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_rcc_ex.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_rcc.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_rcc.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_tim_ex.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_tim_ex.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_tim.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_tim.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_uart.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_uart.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal.c"
           },
           {
-            "path": "Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_flash.c"
+            "path": "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Src/py32f002b_hal_flash.c"
           }
         ],
         "folders": []
@@ -81,9 +81,6 @@
         "files": [
           {
             "path": "Src/flash_control.c"
-          },
-          {
-            "path": "Src/led_control.c"
           },
           {
             "path": "Src/main.c"
@@ -150,10 +147,10 @@
         "name": "default",
         "incList": [
           "Inc",
-          "Drivers/BSP/PY32F002Bxx_Start_Kit",
-          "Drivers/CMSIS/Device/PY32F0xx/Include",
-          "Drivers/CMSIS/Include",
-          "Drivers/PY32F002B_HAL_Driver/Inc"
+          "PY32F002B_Firmware/Drivers/BSP/PY32F002Bxx_Start_Kit",
+          "PY32F002B_Firmware/Drivers/CMSIS/Device/PY32F0xx/Include",
+          "PY32F002B_Firmware/Drivers/CMSIS/Include",
+          "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Inc"
         ],
         "libList": [],
         "defineList": [
