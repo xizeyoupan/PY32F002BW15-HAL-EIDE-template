@@ -34,23 +34,8 @@ extern "C" {
 #include "flash_control.h"
 #include "stdarg.h"
 
-#define KEY_PIN                    (GPIO_PIN_4)
-#define KEY_PIN_PORT               (GPIOA)
-
-#define usPerInterrupt             (40)
-#define msToTimerInterruptCount(x) ((x) * 1000 / usPerInterrupt)
-
-#define DELAY_EVENT_POOL_NUM       (8)
-#define FLASH_STORE_ADDR           (FLASH_BASE + 100 * FLASH_PAGE_SIZE)
-#define MAGIC_NUMBER               (0x11451419)
-typedef struct {
-    uint8_t flag;
-    uint64_t value;
-    void (*callback)(void);
-} delay_event_t;
-
-uint32_t fast_printf(UART_HandleTypeDef *uartHandle, const char *str, ...);
-
+#define TEST_PIN      (GPIO_PIN_4)
+#define TEST_PIN_PORT (GPIOA)
 /* Private includes ----------------------------------------------------------*/
 /* Private defines -----------------------------------------------------------*/
 /* Exported variables prototypes ---------------------------------------------*/

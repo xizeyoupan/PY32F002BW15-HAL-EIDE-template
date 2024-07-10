@@ -29,15 +29,6 @@
         "folders": []
       },
       {
-        "name": "Doc",
-        "files": [
-          {
-            "path": "readme.txt"
-          }
-        ],
-        "folders": []
-      },
-      {
         "name": "PY32F002B_HAL_Driver",
         "files": [
           {
@@ -80,9 +71,6 @@
         "name": "User",
         "files": [
           {
-            "path": "Src/flash_control.c"
-          },
-          {
             "path": "Src/main.c"
           },
           {
@@ -90,6 +78,21 @@
           },
           {
             "path": "Src/py32f002b_it.c"
+          },
+          {
+            "path": "Src/heap_4.c"
+          },
+          {
+            "path": "Src/list.c"
+          },
+          {
+            "path": "Src/port.c"
+          },
+          {
+            "path": "Src/queue.c"
+          },
+          {
+            "path": "Src/tasks.c"
           }
         ],
         "folders": []
@@ -150,7 +153,8 @@
           "PY32F002B_Firmware/Drivers/BSP/PY32F002Bxx_Start_Kit",
           "PY32F002B_Firmware/Drivers/CMSIS/Device/PY32F0xx/Include",
           "PY32F002B_Firmware/Drivers/CMSIS/Include",
-          "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Inc"
+          "PY32F002B_Firmware/Drivers/PY32F002B_HAL_Driver/Inc",
+          "Inc/freertos"
         ],
         "libList": [],
         "defineList": [

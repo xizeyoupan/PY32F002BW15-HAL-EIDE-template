@@ -24,6 +24,10 @@
 #include "main.h"
 #include "py32f002b_it.h"
 
+extern void xPortPendSVHandler(void);
+extern void xPortSysTickHandler(void);
+extern void vPortSVCHandler(void);
+
 /* Private includes ----------------------------------------------------------*/
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -59,6 +63,7 @@ void HardFault_Handler(void)
  */
 void SVC_Handler(void)
 {
+    vPortSVCHandler();
 }
 
 /**
@@ -66,6 +71,7 @@ void SVC_Handler(void)
  */
 void PendSV_Handler(void)
 {
+    xPortPendSVHandler();
 }
 
 /**
@@ -74,27 +80,9 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
     HAL_IncTick();
+    xPortSysTickHandler();
 }
 
-void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
-{
-    HAL_TIM_IRQHandler(&htim1);
-}
-
-void TIM14_IRQHandler(void)
-{
-    HAL_TIM_IRQHandler(&htim14);
-}
-
-void EXTI4_15_IRQHandler(void)
-{
-    HAL_GPIO_EXTI_IRQHandler(KEY_PIN);
-}
-
-void USART1_IRQHandler(void)
-{
-    HAL_UART_IRQHandler(&UartHandle);
-}
 /******************************************************************************/
 /* PY32F002B Peripheral Interrupt Handlers                                     */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
