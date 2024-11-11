@@ -11,8 +11,6 @@
 
 TIM_HandleTypeDef htim1, htim14;
 
-delay_event_t delay_event_pool[DELAY_EVENT_POOL_NUM];
-
 UART_HandleTypeDef UartHandle;
 GPIO_InitTypeDef GPIO_InitStruct;
 
@@ -75,14 +73,14 @@ static void APP_Config(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
-    GPIO_InitStruct.Pin   = KEY_PIN;
-    GPIO_InitStruct.Pull  = GPIO_PULLUP;
-    GPIO_InitStruct.Mode  = GPIO_MODE_IT_FALLING;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(KEY_PIN_PORT, &GPIO_InitStruct);
+    // GPIO_InitStruct.Pin   = KEY_PIN;
+    // GPIO_InitStruct.Pull  = GPIO_PULLUP;
+    // GPIO_InitStruct.Mode  = GPIO_MODE_IT_FALLING;
+    // GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    // HAL_GPIO_Init(KEY_PIN_PORT, &GPIO_InitStruct);
 
-    HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
-    HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
+    // HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
+    // HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
 
     // Timer14 for delay_us(uint16_t us) use, when call delay_us the program will be blocked
     __HAL_RCC_TIM14_CLK_ENABLE();
@@ -113,9 +111,6 @@ static void APP_Config(void)
     HAL_NVIC_EnableIRQ(TIM1_BRK_UP_TRG_COM_IRQn);
     HAL_NVIC_SetPriority(TIM1_BRK_UP_TRG_COM_IRQn, 0, 0);
     HAL_TIM_Base_Start_IT(&htim1);
-
-    // register delay_event here
-    delay_event_pool[0].callback = key_press;
 }
 
 int main(void)
@@ -134,15 +129,8 @@ int main(void)
     }
 
     while (1) {
-        for (unsigned char i = 0; i < DELAY_EVENT_POOL_NUM; i++) {
-            if (delay_event_pool[i].flag) {
-                delay_event_pool[i].flag = 0;
-                delay_event_pool[i].callback();
-            }
-        }
     }
 }
-
 
 void APP_ErrorHandler(void)
 {
@@ -153,23 +141,12 @@ void APP_ErrorHandler(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim == &htim1) {
-
-        for (unsigned char i = 0; i < DELAY_EVENT_POOL_NUM; i++) {
-            if (delay_event_pool[i].value != 0) {
-                delay_event_pool[i].value--;
-                if (delay_event_pool[i].value == 0) {
-                    delay_event_pool[i].flag = 1;
-                }
-            }
-        }
     }
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
     if (GPIO_Pin == KEY_PIN) {
-        if (delay_event_pool[0].value == 0 && delay_event_pool[0].flag == 0)
-            delay_event_pool[0].value = msToTimerInterruptCount(20);
     }
 }
 

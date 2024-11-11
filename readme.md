@@ -6,3 +6,8 @@
 ## 注意事项
 - dap 需要连接3V3，否则不工作
 - flash 需要在 vscode 终端中选择运行任务 - flash
+
+## git
+- clone
+- `git submodule init`
+- `git submodule update`
