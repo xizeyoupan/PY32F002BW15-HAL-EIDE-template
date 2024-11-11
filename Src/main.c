@@ -22,6 +22,14 @@ void emtpy()
 {
 }
 
+void delay_us(TIM_HandleTypeDef *handle, uint16_t us)
+{
+    __HAL_TIM_SET_COUNTER(handle, 0);
+    __HAL_TIM_ENABLE(handle);
+    while (__HAL_TIM_GET_COUNTER(handle) < us) {}
+    __HAL_TIM_DISABLE(handle);
+}
+
 uint8_t data_buf[128];
 uint32_t fast_printf(UART_HandleTypeDef *uartHandle, const char *str, ...)
 {
